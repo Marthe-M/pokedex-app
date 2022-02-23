@@ -116,7 +116,7 @@ const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
                     {props.abilities.map(ability => <li key={ability.name} style={{ borderColor: typeStyle.color }}>{ability.name}</li>)}
                 </ul>
             </div>
-        </div>) : <div className="pokemon-content"><Image src={props.sprites.front_default} alt={props.name} />
+        </div>) : <div className="pokemon-content"><div><Image width="120px" height="120px" layout="fixed" src={props.sprites.front_default} alt={props.name} /></div>
             <ul className="stats-list">
                 <li>HP: {props.base_stats.hp}<div style={{ width: hpStyle.width, backgroundColor: typeStyle.color }} ></div></li>
                 <li>Speed: {props.base_stats.speed}<div style={{ width: speedStyle.width, backgroundColor: typeStyle.color }}></div></li>

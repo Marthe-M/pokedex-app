@@ -150,7 +150,7 @@ const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
       {showCollection ?
         <ul className="collected-pokemon"> {newData && newData.map(pokemon => (<li key={pokemon.uniqueId}>
           <h3>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
-          <Image src={pokemon.image} alt={pokemon.name} />
+          <div><Image width="120px" height="120px" layout="fixed" src={pokemon.image} alt={pokemon.name} /></div>
           <button onClick={() => removePokemon(pokemon.uniqueId)}>Remove</button></li>
         ))} </ul> :
 

@@ -258,12 +258,14 @@ a {
   padding: 4px;
 }
 
+@media only screen and (max-width: 860px) {
+  .pokemon-container {
+    width: 30%;
+  }
+}
+
 @media only screen and (max-width: 720px) {
   .pokemon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
     width: 40%;
   }
 }
