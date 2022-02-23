@@ -4,6 +4,7 @@ import client from "../apollo/client";
 import Pokemon from '../components/Pokemon'
 import { useState, useEffect } from 'react'
 import { CgPokemon } from 'react-icons/cg'
+import Image from 'next/image'
 
 const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("")
@@ -87,6 +88,7 @@ const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
     else if (searchTerm.length > 0) {
       searchResults(searchTerm)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm])
 
   const iconStyle = {
@@ -148,7 +150,7 @@ const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
       {showCollection ?
         <ul className="collected-pokemon"> {newData && newData.map(pokemon => (<li key={pokemon.uniqueId}>
           <h3>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
-          <img src={pokemon.image} alt={pokemon.name} />
+          <Image src={pokemon.image} alt={pokemon.name} />
           <button onClick={() => removePokemon(pokemon.uniqueId)}>Remove</button></li>
         ))} </ul> :
 

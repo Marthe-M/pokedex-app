@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CgPokemon } from 'react-icons/cg'
 import { v4 as uuidv4 } from 'uuid';
+import Image from 'next/image'
 
 const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
     const [showMore, setShowMore] = useState<Boolean>(false)
@@ -79,7 +80,7 @@ const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
                 setShowMessage(false)
             }, 2000);
 
-        }, [showMessage]);
+        }, []);
         return (
             <h3 style={{ borderColor: typeStyle.color }} className="alert-message">You have catched: {firstLetterCapitalized}!</h3>
         )
@@ -112,10 +113,10 @@ const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
                 <h4 style={{ borderColor: typeStyle.color }}>Abilities:</h4>
                 <ul className="abilities-list">
 
-                    {props.abilities.map(ability => <li style={{ borderColor: typeStyle.color }}>{ability.name}</li>)}
+                    {props.abilities.map(ability => <li key={ability.name} style={{ borderColor: typeStyle.color }}>{ability.name}</li>)}
                 </ul>
             </div>
-        </div>) : <div className="pokemon-content"><img src={props.sprites.front_default} style={{ width: '100px' }} />
+        </div>) : <div className="pokemon-content"><Image src={props.sprites.front_default} alt={props.name} />
             <ul className="stats-list">
                 <li>HP: {props.base_stats.hp}<div style={{ width: hpStyle.width, backgroundColor: typeStyle.color }} ></div></li>
                 <li>Speed: {props.base_stats.speed}<div style={{ width: speedStyle.width, backgroundColor: typeStyle.color }}></div></li>
@@ -123,7 +124,7 @@ const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
                 <li>Defense: {props.base_stats.defense}<div style={{ width: defenseStyle.width, backgroundColor: typeStyle.color }}></div></li>
             </ul>
             <ul className="type-list">
-                {props.types.map(type => <li className="type-item" style={{ borderColor: typeStyle.color }}>{type.name}</li>)}
+                {props.types.map(type => <li className="type-item" key={type.name} style={{ borderColor: typeStyle.color }}>{type.name}</li>)}
             </ul></div>}
         {showMore ?
             <button onClick={() => (setShowMore(false))} style={{ backgroundColor: typeStyle.color }}>Show less</button> :
