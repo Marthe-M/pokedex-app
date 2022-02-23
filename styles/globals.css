@@ -258,7 +258,7 @@ a {
   padding: 4px;
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 900px) {
   .pokemon-container {
     width: 30%;
   }
