@@ -50,7 +50,7 @@ const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
 
   async function getPokemon() {
     try {
-      fetch('http://localhost:3000/api/collection', {
+      fetch('https://pokedex-app-nu.vercel.app/api/collection', {
 
         method: 'GET'
       }).then(response => response.json())
@@ -63,7 +63,7 @@ const Home: React.FC<PokemonProps> = ({ pokemon }: PokemonProps) => {
 
   async function deletePokemon(id: string) {
     try {
-      fetch(`http://localhost:3000/api/delete/${id}`, {
+      fetch(`https://pokedex-app-nu.vercel.app/api/delete/${id}`, {
         headers: {
           'Content-type': 'application/json'
         },

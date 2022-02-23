@@ -12,7 +12,7 @@ const Pokemon: React.FC<PokemonType> = (props: PokemonType) => {
 
     async function create(pokemon: NewPokemonType) {
         try {
-            fetch('http://localhost:3000/api/create', {
+            fetch('https://pokedex-app-nu.vercel.app/api/create', {
                 body: JSON.stringify(pokemon),
                 headers: {
                     'Content-type': 'application/json'
